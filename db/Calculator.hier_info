@@ -1,0 +1,62 @@
+|SystemMap
+CLOCK_50 => PreScale:PS.clk
+SW[0] => ~NO_FANOUT~
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+KEY[0] => StateManager:SM.next_trig
+KEY[1] => StateManager:SM.back_trig
+KEY[2] => StateManager:SM.reset
+KEY[3] => ~NO_FANOUT~
+LEDR[0] <= StateManager:SM.d_1
+LEDR[1] <= StateManager:SM.d_2
+LEDR[2] <= StateManager:SM.d_3
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+
+
+|SystemMap|PreScale:PS
+clk => acc[0].CLK
+clk => acc[1].CLK
+clk => acc[2].CLK
+clk => acc[3].CLK
+clk => acc[4].CLK
+clk => acc[5].CLK
+clk => acc[6].CLK
+clk => acc[7].CLK
+clk => acc[8].CLK
+clk => acc[9].CLK
+clk => acc[10].CLK
+clk => acc[11].CLK
+clk => acc[12].CLK
+clk_out <= acc[12].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SystemMap|StateManager:SM
+clk => y~1.DATAIN
+reset => y~3.DATAIN
+next_trig => y_next.OUTPUTSELECT
+next_trig => y_next.OUTPUTSELECT
+next_trig => Selector1.IN4
+next_trig => Selector2.IN4
+next_trig => Selector3.IN4
+next_trig => y_next.sE.DATAB
+next_trig => Selector0.IN1
+back_trig => y_next.DATAA
+back_trig => y_next.DATAA
+d_1 <= d_1.DB_MAX_OUTPUT_PORT_TYPE
+d_2 <= d_2.DB_MAX_OUTPUT_PORT_TYPE
+d_3 <= d_3.DB_MAX_OUTPUT_PORT_TYPE
+
+
