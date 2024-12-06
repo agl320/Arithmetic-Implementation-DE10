@@ -1,0 +1,181 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -5.541
+TNS   : -114.069
+
+Type  : Slow 1100mV 85C Model Setup 'KEY[3]'
+Slack : -4.693
+TNS   : -76.884
+
+Type  : Slow 1100mV 85C Model Setup 'PreScale:PS|acc[23]'
+Slack : -3.097
+TNS   : -36.669
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'PreScale:PS|acc[23]'
+Slack : 0.658
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'KEY[3]'
+Slack : 0.982
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'PreScale:PS|acc[23]'
+Slack : -1.897
+TNS   : -9.473
+
+Type  : Slow 1100mV 85C Model Removal 'PreScale:PS|acc[23]'
+Slack : 0.971
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -12.580
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PreScale:PS|acc[23]'
+Slack : -0.394
+TNS   : -8.989
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[3]'
+Slack : 0.125
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -5.623
+TNS   : -111.897
+
+Type  : Slow 1100mV 0C Model Setup 'KEY[3]'
+Slack : -4.452
+TNS   : -72.954
+
+Type  : Slow 1100mV 0C Model Setup 'PreScale:PS|acc[23]'
+Slack : -3.119
+TNS   : -36.615
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.070
+TNS   : -0.885
+
+Type  : Slow 1100mV 0C Model Hold 'PreScale:PS|acc[23]'
+Slack : 0.668
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'KEY[3]'
+Slack : 0.764
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'PreScale:PS|acc[23]'
+Slack : -1.903
+TNS   : -9.503
+
+Type  : Slow 1100mV 0C Model Removal 'PreScale:PS|acc[23]'
+Slack : 0.973
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -13.648
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PreScale:PS|acc[23]'
+Slack : -0.394
+TNS   : -8.739
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[3]'
+Slack : 0.132
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'KEY[3]'
+Slack : -3.131
+TNS   : -50.841
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.107
+TNS   : -62.131
+
+Type  : Fast 1100mV 85C Model Setup 'PreScale:PS|acc[23]'
+Slack : -1.452
+TNS   : -18.489
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.101
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'PreScale:PS|acc[23]'
+Slack : 0.274
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'KEY[3]'
+Slack : 0.685
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'PreScale:PS|acc[23]'
+Slack : -1.281
+TNS   : -6.379
+
+Type  : Fast 1100mV 85C Model Removal 'PreScale:PS|acc[23]'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.301
+TNS   : -2.288
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.049
+TNS   : -0.601
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PreScale:PS|acc[23]'
+Slack : 0.020
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.819
+TNS   : -54.268
+
+Type  : Fast 1100mV 0C Model Setup 'KEY[3]'
+Slack : -2.547
+TNS   : -40.994
+
+Type  : Fast 1100mV 0C Model Setup 'PreScale:PS|acc[23]'
+Slack : -1.441
+TNS   : -17.939
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.142
+TNS   : -2.972
+
+Type  : Fast 1100mV 0C Model Hold 'PreScale:PS|acc[23]'
+Slack : 0.253
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'KEY[3]'
+Slack : 0.448
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'PreScale:PS|acc[23]'
+Slack : -1.288
+TNS   : -6.421
+
+Type  : Fast 1100mV 0C Model Removal 'PreScale:PS|acc[23]'
+Slack : 0.335
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.310
+TNS   : -2.328
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.047
+TNS   : -0.560
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PreScale:PS|acc[23]'
+Slack : 0.053
+TNS   : 0.000
+
+------------------------------------------------------------

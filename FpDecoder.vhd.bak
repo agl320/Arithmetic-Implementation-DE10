@@ -1,0 +1,18 @@
+LIBRARY ieee; 
+USE ieee.std_logic_1164.all; 
+
+-- Converts 2 bits to decimal representation in 2 seg
+ENTITY FPDecoder IS 
+PORT (
+	D : IN STD_LOGIC_VECTOR(1 downto 0);
+	Y : OUT STD_LOGIC_VECTOR(6 downto 0);
+	Z : OUT std_logic_vector(6 downto 0)
+);
+END ENTITY;
+
+ARCHITECTURE OpDecoder OF OpDecoder IS 
+
+BEGIN
+
+
+END ARCHITECTURE OpDecoder;

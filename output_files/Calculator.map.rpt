@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Calculator
-Wed Dec  4 22:01:15 2024
+Fri Dec  6 00:37:56 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -14,11 +14,14 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |SystemMap|StateManager:SM|y
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: PreScale:PS
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: PreScale:PS
+ 13. Port Connectivity Checks: "StateManager:SM|BitToHex:BH|SegDecoder:SD2"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -45,14 +48,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Dec  4 22:01:15 2024          ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec  6 00:37:56 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; Calculator                                     ;
 ; Top-level Entity Name           ; SystemMap                                      ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 18                                             ;
-; Total pins                      ; 25                                             ;
+; Total registers                 ; 40                                             ;
+; Total pins                      ; 67                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -169,15 +172,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                              ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
-; PreScale.vhd                     ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/PreScale.vhd     ;         ;
-; SystemMap.vhd                    ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd    ;         ;
-; StateManager.vhd                 ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                          ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------+---------+
+; OpDecoder.vhd                    ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/OpDecoder.vhd                ;         ;
+; SegDecoder.vhd                   ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SegDecoder.vhd               ;         ;
+; PreScale.vhd                     ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/PreScale.vhd                 ;         ;
+; SystemMap.vhd                    ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd                ;         ;
+; StateManager.vhd                 ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd             ;         ;
+; BitToHex.vhd                     ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/BitToHex.vhd                 ;         ;
+; FpDecoder.vhd                    ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/FpDecoder.vhd                ;         ;
+; output_files/SignDecoder.vhd     ; yes             ; User VHDL File  ; C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/output_files/SignDecoder.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------------+
@@ -185,37 +193,39 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------------+
 ; Resource                                    ; Usage                ;
 +---------------------------------------------+----------------------+
-; Estimate of Logic utilization (ALMs needed) ; 12                   ;
+; Estimate of Logic utilization (ALMs needed) ; 65                   ;
 ;                                             ;                      ;
-; Combinational ALUT usage for logic          ; 23                   ;
+; Combinational ALUT usage for logic          ; 118                  ;
 ;     -- 7 input functions                    ; 0                    ;
-;     -- 6 input functions                    ; 1                    ;
-;     -- 5 input functions                    ; 5                    ;
-;     -- 4 input functions                    ; 1                    ;
-;     -- <=3 input functions                  ; 16                   ;
+;     -- 6 input functions                    ; 12                   ;
+;     -- 5 input functions                    ; 11                   ;
+;     -- 4 input functions                    ; 15                   ;
+;     -- <=3 input functions                  ; 80                   ;
 ;                                             ;                      ;
-; Dedicated logic registers                   ; 18                   ;
+; Dedicated logic registers                   ; 40                   ;
 ;                                             ;                      ;
-; I/O pins                                    ; 25                   ;
+; I/O pins                                    ; 67                   ;
 ;                                             ;                      ;
 ; Total DSP Blocks                            ; 0                    ;
 ;                                             ;                      ;
-; Maximum fan-out node                        ; PreScale:PS|Equal0~2 ;
-; Maximum fan-out                             ; 13                   ;
-; Total fan-out                               ; 149                  ;
-; Average fan-out                             ; 1.64                 ;
+; Maximum fan-out node                        ; StateManager:SM|y.sB ;
+; Maximum fan-out                             ; 42                   ;
+; Total fan-out                               ; 629                  ;
+; Average fan-out                             ; 2.15                 ;
 +---------------------------------------------+----------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                            ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------+--------------+--------------+
-; |SystemMap                 ; 23 (0)              ; 18 (0)                    ; 0                 ; 0          ; 25   ; 0            ; |SystemMap                 ; SystemMap    ; work         ;
-;    |PreScale:PS|           ; 16 (16)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |SystemMap|PreScale:PS     ; PreScale     ; work         ;
-;    |StateManager:SM|       ; 7 (7)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |SystemMap|StateManager:SM ; StateManager ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------+--------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                       ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+--------------+--------------+
+; |SystemMap                 ; 118 (0)             ; 40 (0)                    ; 0                 ; 0          ; 67   ; 0            ; |SystemMap                                            ; SystemMap    ; work         ;
+;    |PreScale:PS|           ; 29 (29)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |SystemMap|PreScale:PS                                ; PreScale     ; work         ;
+;    |StateManager:SM|       ; 89 (82)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |SystemMap|StateManager:SM                            ; StateManager ; work         ;
+;       |BitToHex:BH|        ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SystemMap|StateManager:SM|BitToHex:BH                ; BitToHex     ; work         ;
+;          |SegDecoder:SD1|  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SystemMap|StateManager:SM|BitToHex:BH|SegDecoder:SD1 ; SegDecoder   ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -233,19 +243,61 @@ Encoding Type:  One-Hot
 +------+------+------+------+------+-----------+
 
 
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++-----------------------------------------------------+------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal          ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------+------------------------+
+; StateManager:SM|secondFloating[0]                   ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstFloating[0]                    ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|operation[1]                        ; StateManager:SM|operation[0] ; yes                    ;
+; StateManager:SM|operation[0]                        ; StateManager:SM|operation[0] ; yes                    ;
+; StateManager:SM|secondFloating[1]                   ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstFloating[1]                    ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|secondWhole[0]                      ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstWhole[0]                       ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|secondWhole[1]                      ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstWhole[1]                       ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|secondWhole[2]                      ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstWhole[2]                       ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|secondWhole[3]                      ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstWhole[3]                       ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|secondWhole[4]                      ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstWhole[4]                       ; StateManager:SM|firstSign    ; yes                    ;
+; StateManager:SM|secondSign                          ; StateManager:SM|secondSign   ; yes                    ;
+; StateManager:SM|firstSign                           ; StateManager:SM|firstSign    ; yes                    ;
+; Number of user-specified and inferred latches = 18  ;                              ;                        ;
++-----------------------------------------------------+------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 18    ;
-; Number of registers using Synchronous Clear  ; 13    ;
+; Total registers                              ; 40    ;
+; Number of registers using Synchronous Clear  ; 32    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 5     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SystemMap|StateManager:SM|fpSequence[0]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SystemMap|StateManager:SM|firstWhole[3]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |SystemMap|StateManager:SM|secondWhole[4] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SystemMap|StateManager:SM|seg1           ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SystemMap|StateManager:SM|seg3[3]        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |SystemMap|StateManager:SM|operation[1]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
 +----------------------------------------------------------+
@@ -253,9 +305,18 @@ Encoding Type:  One-Hot
 +----------------+-------+---------------------------------+
 ; Parameter Name ; Value ; Type                            ;
 +----------------+-------+---------------------------------+
-; n              ; 12    ; Signed Integer                  ;
+; n              ; 23    ; Signed Integer                  ;
 +----------------+-------+---------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "StateManager:SM|BitToHex:BH|SegDecoder:SD2" ;
++---------+-------+----------+-------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                   ;
++---------+-------+----------+-------------------------------------------+
+; d[3..1] ; Input ; Info     ; Stuck at GND                              ;
++---------+-------+----------+-------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -263,23 +324,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 18                          ;
+; arriav_ff             ; 40                          ;
 ;     CLR               ; 5                           ;
-;     SCLR              ; 13                          ;
-; arriav_lcell_comb     ; 24                          ;
-;     arith             ; 13                          ;
-;         1 data inputs ; 13                          ;
-;     normal            ; 11                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 1                           ;
-;         5 data inputs ; 5                           ;
-;         6 data inputs ; 1                           ;
-; boundary_port         ; 25                          ;
+;     ENA               ; 3                           ;
+;     ENA SCLR          ; 8                           ;
+;     SCLR              ; 24                          ;
+; arriav_lcell_comb     ; 125                         ;
+;     arith             ; 24                          ;
+;         1 data inputs ; 24                          ;
+;     normal            ; 101                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 51                          ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 11                          ;
+;         6 data inputs ; 12                          ;
+; boundary_port         ; 67                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.20                        ;
-; Average LUT depth     ; 1.60                        ;
+; Max LUT depth         ; 3.30                        ;
+; Average LUT depth     ; 2.02                        ;
 +-----------------------+-----------------------------+
 
 
@@ -298,32 +362,112 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Wed Dec  4 22:01:08 2024
+    Info: Processing started: Fri Dec  6 00:37:49 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Calculator -c Calculator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file opdecoder.vhd
+    Info (12022): Found design unit 1: OpDecoder-OpDecoderLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/OpDecoder.vhd Line: 13
+    Info (12023): Found entity 1: OpDecoder File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/OpDecoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file segdecoder.vhd
+    Info (12022): Found design unit 1: SegDecoder-SegDecoderLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: SegDecoder File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SegDecoder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file prescale.vhd
     Info (12022): Found design unit 1: PreScale-PreScaleLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/PreScale.vhd Line: 17
     Info (12023): Found entity 1: PreScale File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/PreScale.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file systemmap.vhd
-    Info (12022): Found design unit 1: SystemMap-SystemMapLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
+    Info (12022): Found design unit 1: SystemMap-SystemMapLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 22
     Info (12023): Found entity 1: SystemMap File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file statemanager.vhd
-    Info (12022): Found design unit 1: StateManager-StateManagerLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 24
+    Info (12022): Found design unit 1: StateManager-StateManagerLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 42
     Info (12023): Found entity 1: StateManager File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bittohex.vhd
+    Info (12022): Found design unit 1: BitToHex-BitToHexLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/BitToHex.vhd Line: 13
+    Info (12023): Found entity 1: BitToHex File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/BitToHex.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file fpdecoder.vhd
+    Info (12022): Found design unit 1: FpDecoder-FpDecoderLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/FpDecoder.vhd Line: 12
+    Info (12023): Found entity 1: FpDecoder File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/FpDecoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file output_files/signdecoder.vhd
+    Info (12022): Found design unit 1: SignDecoder-SignDecoderLogic File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/output_files/SignDecoder.vhd Line: 11
+    Info (12023): Found entity 1: SignDecoder File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/output_files/SignDecoder.vhd Line: 4
 Info (12127): Elaborating entity "SystemMap" for the top level hierarchy
-Warning (10873): Using initial value X (don't care) for net "LEDR[9..3]" at SystemMap.vhd(10) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
-Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:PS" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 51
-Info (12128): Elaborating entity "StateManager" for hierarchy "StateManager:SM" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 60
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(69): signal "next_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 69
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(87): signal "next_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 87
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(91): signal "back_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 91
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(110): signal "next_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 110
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(114): signal "back_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 114
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(133): signal "next_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 133
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(137): signal "back_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 137
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(156): signal "next_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at StateManager.vhd(160): signal "back_trig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 160
+Warning (10873): Using initial value X (don't care) for net "LEDR[8..3]" at SystemMap.vhd(10) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
+Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:PS" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 71
+Info (12128): Elaborating entity "StateManager" for hierarchy "StateManager:SM" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(202): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 202
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(202): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 202
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(216): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 216
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(223): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 223
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(230): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 230
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "firstWhole", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "firstFloating", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "firstSign", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "secondWhole", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "secondFloating", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "secondSign", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at StateManager.vhd(200): inferring latch(es) for signal or variable "operation", which holds its previous value in one or more paths through the process File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(356): signal "s_seg0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 356
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(360): signal "fp_seg0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 360
+Warning (10492): VHDL Process Statement warning at StateManager.vhd(361): signal "fp_seg1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 361
+Info (10041): Inferred latch for "operation[0]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "operation[1]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondSign" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondFloating[0]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondFloating[1]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondWhole[0]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondWhole[1]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondWhole[2]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondWhole[3]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "secondWhole[4]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstSign" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstFloating[0]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstFloating[1]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstWhole[0]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstWhole[1]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstWhole[2]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstWhole[3]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (10041): Inferred latch for "firstWhole[4]" at StateManager.vhd(200) File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+Info (12128): Elaborating entity "BitToHex" for hierarchy "StateManager:SM|BitToHex:BH" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 122
+Info (12128): Elaborating entity "SegDecoder" for hierarchy "StateManager:SM|BitToHex:BH|SegDecoder:SD1" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/BitToHex.vhd Line: 24
+Info (12128): Elaborating entity "OpDecoder" for hierarchy "StateManager:SM|OpDecoder:OP" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 130
+Info (12128): Elaborating entity "FpDecoder" for hierarchy "StateManager:SM|FpDecoder:FP" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 138
+Info (12128): Elaborating entity "SignDecoder" for hierarchy "StateManager:SM|SignDecoder:S" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 145
+Warning (13012): Latch StateManager:SM|secondFloating[0] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstFloating[0] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|operation[1] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|operation[0] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondFloating[1] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstFloating[1] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondWhole[0] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstWhole[0] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondWhole[1] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstWhole[1] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondWhole[2] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstWhole[2] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondWhole[3] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstWhole[3] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondWhole[4] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstWhole[4] has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 200
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|secondSign has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
+Warning (13012): Latch StateManager:SM|firstSign has unsafe behavior File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 63
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateManager:SM|editEnabled File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/StateManager.vhd Line: 155
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
     Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
@@ -331,7 +475,15 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
     Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 10
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 13
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 13
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 15
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 16
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "DE10_Standard" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_Standard -section_id Top was ignored
@@ -385,26 +537,17 @@ Warning (20013): Ignored 24 assignments for entity "de10" -- entity does not exi
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity de10 -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/thean/Downloads/Obsidian Files/Fall 2024/ENSC 252/Bonus Project/SystemMap.vhd Line: 9
-Info (21057): Implemented 48 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 186 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 23 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 81 warnings
-    Info: Peak virtual memory: 4903 megabytes
-    Info: Processing ended: Wed Dec  4 22:01:15 2024
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 119 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 122 warnings
+    Info: Peak virtual memory: 4911 megabytes
+    Info: Processing ended: Fri Dec  6 00:37:56 2024
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Total CPU time (on all processors): 00:00:08
 
 
