@@ -1,0 +1,43 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY OperationTester IS
+END ENTITY OperationTester;
+
+ARCHITECTURE Behavior OF OperationTester IS
+    -- Component declaration for the Unit Under Test (UUT)
+    COMPONENT AdditionHandler IS
+        PORT (
+            A : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            B : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            result : OUT STD_LOGIC_VECTOR(12 DOWNTO 0)
+        );
+    END COMPONENT;
+
+    -- Testbench signals
+    SIGNAL A : STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); -- Dividend
+    SIGNAL B : STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); -- Divisor
+    SIGNAL result : STD_LOGIC_VECTOR(12 DOWNTO 0);              -- Result
+
+BEGIN
+    -- Instantiate the Unit Under Test (UUT)
+    UUT: AdditionHandler
+        PORT MAP (
+            A => A,
+            B => B,
+            result => result
+        );
+
+    -- Test process
+    PROCESS
+    BEGIN
+        -- Test case 1: Add 5.25 (00101001) and 2.50 (00010110)
+        A <= "00101001";  -- +5.25
+        B <= "00010110";  -- +2.50
+        WAIT FOR 10 ns;
+        ASSERT result = "00001111011" REPORT "Test case 1 failed" SEVERITY ERROR;
+
+        WAIT;
+    END PROCESS;
+END ARCHITECTURE Behavior;

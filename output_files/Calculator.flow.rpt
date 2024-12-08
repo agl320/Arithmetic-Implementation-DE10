@@ -1,5 +1,5 @@
 Flow report for Calculator
-Fri Dec  6 00:38:38 2024
+Sun Dec  8 07:25:35 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Fri Dec  6 00:38:38 2024          ;
+; Flow Status                     ; Successful - Sun Dec  8 07:25:35 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; Calculator                                     ;
 ; Top-level Entity Name           ; SystemMap                                      ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSXFC6D6F31C6                                 ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 66 / 41,910 ( < 1 % )                          ;
-; Total registers                 ; 40                                             ;
+; Logic utilization (in ALMs)     ; 925 / 41,910 ( 2 % )                           ;
+; Total registers                 ; 702                                            ;
 ; Total pins                      ; 67 / 499 ( 13 % )                              ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                          ;
-; Total DSP Blocks                ; 0 / 112 ( 0 % )                                ;
+; Total block memory bits         ; 3,072 / 5,662,720 ( < 1 % )                    ;
+; Total DSP Blocks                ; 1 / 112 ( < 1 % )                              ;
 ; Total HSSI RX PCSs              ; 0 / 9 ( 0 % )                                  ;
 ; Total HSSI PMA RX Deserializers ; 0 / 9 ( 0 % )                                  ;
 ; Total HSSI TX PCSs              ; 0 / 9 ( 0 % )                                  ;
@@ -68,41 +68,71 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/06/2024 00:37:49 ;
+; Start date & time ; 12/08/2024 07:23:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Calculator          ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                 ;
-+-------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name   ; Section Id                        ;
-+-------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 273085295366698.173347426926828        ; --            ; --            ; --                                ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --            ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)            ; <None>        ; --            ; --                                ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --            ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --            ; --                                ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --            ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE10_Standard ; Top                               ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; SystemMap     ; Top                               ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; de10          ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DE10_Standard ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; SystemMap     ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; de10          ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DE10_Standard ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; SystemMap     ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; de10          ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --            ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --            ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --            ; --                                ;
-; TOP_LEVEL_ENTITY                    ; SystemMap                              ; Calculator    ; --            ; --                                ;
-+-------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                           ;
++-------------------------------------+------------------------------------------------------------------------------------------------------------------+---------------+---------------+-----------------------------------+
+; Assignment Name                     ; Value                                                                                                            ; Default Value ; Entity Name   ; Section Id                        ;
++-------------------------------------+------------------------------------------------------------------------------------------------------------------+---------------+---------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 273085295366698.173367140016312                                                                                  ; --            ; --            ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                                              ; --            ; --            ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                                              ; --            ; --            ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                                              ; --            ; --            ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                                              ; --            ; --            ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                                                                      ; --            ; --            ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)                                                                                      ; <None>        ; --            ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                                                                                             ; --            ; --            ; eda_simulation                    ;
+; ENABLE_SIGNALTAP                    ; On                                                                                                               ; --            ; --            ; --                                ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                               ; --            ; --            ; --                                ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                ; --            ; --            ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                                                           ; --            ; DE10_Standard ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                                                           ; --            ; SystemMap     ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                                                           ; --            ; de10          ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                                                           ; --            ; DE10_Standard ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                                                           ; --            ; SystemMap     ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                                                           ; --            ; de10          ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                                                           ; --            ; DE10_Standard ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                                                           ; --            ; SystemMap     ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                                                           ; --            ; de10          ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                                              ; --            ; --            ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                                            ; --            ; --            ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                                                     ; --            ; --            ; --                                ;
+; SLD_FILE                            ; db/stp2_auto_stripped.stp                                                                                        ; --            ; --            ; --                                ;
+; SLD_NODE_CREATOR_ID                 ; 110                                                                                                              ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                                                    ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                                                          ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=24                                                                                                 ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=24                                                                                              ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=24                                                                                    ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                                                                          ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                                                           ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=93                                                                                     ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                                                    ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=128                                                                                             ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                                                       ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                                                                   ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                                                                ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                                                           ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                                                                     ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                                                                        ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                                                              ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=128                                                                                             ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                                                                         ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                                                           ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                                                               ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                                                           ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                                                                             ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                                                     ; --            ; --            ; auto_signaltap_0                  ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=0                                                                                    ; --            ; --            ; auto_signaltap_0                  ;
+; TOP_LEVEL_ENTITY                    ; SystemMap                                                                                                        ; Calculator    ; --            ; --                                ;
+; USE_SIGNALTAP_FILE                  ; output_files/stp2.stp                                                                                            ; --            ; --            ; --                                ;
++-------------------------------------+------------------------------------------------------------------------------------------------------------------+---------------+---------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -110,12 +140,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4911 MB             ; 00:00:08                           ;
-; Fitter               ; 00:00:30     ; 1.0                     ; 6942 MB             ; 00:00:38                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4870 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.2                     ; 5187 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4732 MB             ; 00:00:01                           ;
-; Total                ; 00:00:44     ; --                      ; --                  ; 00:00:54                           ;
+; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 4958 MB             ; 00:00:24                           ;
+; Fitter               ; 00:01:35     ; 1.1                     ; 6962 MB             ; 00:01:55                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4881 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.7                     ; 5245 MB             ; 00:00:08                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4747 MB             ; 00:00:02                           ;
+; Total                ; 00:02:10     ; --                      ; --                  ; 00:02:34                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

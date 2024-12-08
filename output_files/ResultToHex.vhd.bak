@@ -1,0 +1,59 @@
+LIBRARY ieee; 
+USE ieee.std_logic_1164.all; 
+
+-- Turns 5 bit input into 2 hex segments
+ENTITY ResultToHex IS 
+	PoRT (
+		-- OUTPUT
+        result_magnitude : OUT STD_LOGIC_VECTOR(5 DOWNTO 0) ;     
+		  result_sign : OUT STD_LOGIC;
+		  result_fp : OUT STD_LOGIC_VECTOR(1 downto 0)
+		  
+		-- Floating point
+		seg0 : OUT STD_LOGIC_VECTOR(6 downto 0);
+		seg1 : OUT STD_LOGIC_VECTOR(6 downto 0);
+		-- Whole
+		seg2 : OUT STD_LOGIC_VECTOR(6 downto 0);
+		seg3 : OUT STD_LOGIC_VECTOR(6 downto 0);
+		seg4 : OUT STD_LOGIC_VECTOR(6 downto 0);
+		-- Sign
+		seg5 : OUT STD_LOGIC_VECTOR(6 downto 0)
+	);
+END ENTITY ResultToHex;
+
+ARCHITECTURE ResultToHexLogic OF ResultToHex IS
+	
+	COMPONENT SegDecoder IS 
+		PORT
+		(D : in std_logic_vector(3 downto 0);
+		Y : out std_logic_vector(6 downto 0));
+	END COMPONENT;
+
+
+BEGIN
+
+-- Floating point 2bit
+	SD1 : SegDecoder	
+		PORT MAP(
+			D => "00" & result_fp,
+			Y => seg0 
+		);
+		
+	-- sign decoder 1bit
+	seg3 <= "1111111" WHEN result_sign = '0' ELSE "0111111";
+		
+	SD2 : SegDecoder
+		PORT MAP(
+			D => result_whole(3 downto 0),
+			Y => seg1
+		);
+		
+		SD3 : SegDecoder
+		PORT MAP(
+			D => "00" & result_whole(5 downto 4),
+			Y => seg2
+		);
+		
+		
+
+END ARCHITECTURE ResultToHexLogic;

@@ -1,8 +1,0 @@
-
-State Machine - |SystemMap|StateManager:SM|y
-Name y.sE y.sD y.sC y.sB y.sA 
-y.sA 0 0 0 0 0 
-y.sB 0 0 0 1 1 
-y.sC 0 0 1 0 1 
-y.sD 0 1 0 0 1 
-y.sE 1 0 0 0 1 
